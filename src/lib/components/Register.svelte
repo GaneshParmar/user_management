@@ -1,5 +1,6 @@
 <script>
-  import authService from "../supabase/auth";
+  import conf from "../config/conf";
+import authService from "../supabase/auth";
 
   //
 
@@ -22,9 +23,10 @@
 
       console.log(user);
     
-      if(user == null){
-        form_error = 'Something went wrong!';
+      if (user.error) {
+        form_error = user.error || "Something went wrong!";
       }
+        
     }catch(e){
       console.log("Error Register Page :: handleSignUp :: ",e.message)
     }
@@ -52,11 +54,11 @@
           src="https://storage.googleapis.com/devitary-image-host.appspot.com/15846435184459982716-LogoMakr_7POjrN.png"
           class="w-32 mx-auto"
         /> -->
-        <h1 class="w-32 mx-auto text-xl font-bold">ConsulAi</h1>
+        <h1 class="w-32 mx-auto text-xl font-bold">{{conf.AppName}}</h1>
       </div>
       <div class="mt-12 flex flex-col items-center">
         <h1 class="text-2xl xl:text-3xl font-extrabold">
-          Sign up for ConsulAi
+          Sign up for {{conf.AppName}}
         </h1>
         <div class="w-full flex-1 mt-8">
           <div class="flex flex-col items-center">

@@ -24,8 +24,8 @@ export class AuthService {
             }
         } catch (e) {
             console.log("Error AuthService :: signUp :: ", e.message);
+            return {error : e.message};
         }
-        return null;
     }
 
     // Login with email and password
@@ -43,8 +43,8 @@ export class AuthService {
             }
         } catch (e) {
             console.log("Error AuthService :: login :: ", e.message);
+            return {error : e.message};
         }
-        return null;
     }
 
     // Sign up or login with Google OAuth

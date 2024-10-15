@@ -3,6 +3,7 @@
   import Avatar from "../user/Avatar.svelte";
   import { authStore } from "../../store";
   import { Link } from "svelte-routing";
+  import conf from "../../config/conf";
 
   export let pageHeading = "";
   export let show_search_products = false;
@@ -24,7 +25,7 @@
   >
     <Link to="/">
       <h3 class="text-3xl font-bold">
-        {import.meta.env.VITE_APP_NAME}
+        {conf.AppName}
         {pageHeading}
       </h3>
     </Link>
