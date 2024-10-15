@@ -1,3 +1,64 @@
+# User Management Project
+
+This project integrates user management features using Supabase and enables Google authentication.
+
+## Prerequisites
+
+1. A Supabase account: [Sign up or log in here](https://supabase.com/).
+2. Node.js and npm installed: [Download here](https://nodejs.org/).
+
+## Setup Instructions
+
+### 1. Create a Supabase Project
+
+- Go to the [Supabase Dashboard](https://supabase.com/dashboard) and create a new project.
+- **Save your Project Reference ID** and **Database Password** from the setup process. You'll need them later.
+  
+### 2. Clone the Repository
+
+```bash
+git clone https://github.com/GaneshParmar/user_management.git
+cd user_management
+npm install
+```
+
+### 3. Configure Environment Variables
+
+- Create a `.env` file in the root directory of the project.
+- Use the `.env.example` as a reference for setting up your environment variables:
+  
+```bash
+cp .env.example .env
+```
+
+### 4. Get Your Supabase Credentials
+
+- In your Supabase project dashboard, navigate to **Settings** > **API** to get the following:
+  - `SUPABASE_URL`
+  - `SUPABASE_ANON_KEY`
+  - `SUPABASE_SERVICE_ROLE_KEY`
+
+  Update these credentials in your `.env` file.
+
+  **API Credentials URL:**
+  ```
+  https://supabase.com/dashboard/project/{your_project_ref_id}/settings/api
+  ```
+
+### 5. Enable Google Authentication
+
+- In your Supabase dashboard, enable the Google provider to allow Google sign-in for users:
+  - Navigate to **Authentication** > **Providers**.
+  - Enable **Google** and configure it.
+
+  **Google Provider Setup URL:**
+  ```
+  https://supabase.com/dashboard/project/{your_project_ref_id}/auth/providers
+  ```
+
+  Follow the instructions in the Supabase documentation to configure your Google OAuth credentials.
+
+#
 # Setup Instructions for Supabase and Docker
 
 Follow these steps to set up Supabase CLI and Docker for your project:
@@ -38,6 +99,17 @@ If you encounter issues with WSL (Windows Subsystem for Linux), follow these ste
 
 ## Step 3: Initialize Supabase Project
 
+0. Test if supabase is installed successfully
+   ```bash
+   supabase --help
+   ```
+   if it doesn't work maybe you should check the enviromental variable or use the absolute path
+
+   for eg.
+
+   ```bash
+   C:\scoop\apps\supabase\current\supabase --help
+   ``` 
 1. Initialize Supabase in your project directory:
    ```bash
    supabase init
@@ -73,11 +145,19 @@ If you encounter issues with WSL (Windows Subsystem for Linux), follow these ste
    
 2. Push your schema from a local SQL file:
    ```bash
-   supabase db push --file path-to-your-schema.sql
+   supabase migration new "migration_name" 
    ```
-
-# 
-
+3. Copy the db folder's (present in root) sql files to supabase/migrations/
+   ```bash
+      copy db/* supabase/migrations
+   ```
+4. Run the belwo command to make required tables in your supabase project
+   ```bash 
+      supabase db push
+   ```
+   Run the command two times we have two migrations.
+#
+# Great Done 🤗
 ## Path Configuration and Routing
 
 ### Define Path Configurations
