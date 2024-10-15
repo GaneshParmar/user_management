@@ -77,7 +77,49 @@ If you encounter issues with WSL (Windows Subsystem for Linux), follow these ste
    ```
 
 # 
-#
+
+## Path Configuration and Routing
+
+### Define Path Configurations
+
+Centralize your URL paths in `src/lib/config/pathConfigs.js`:
+
+```javascript
+const url_path = {
+    login: "/login",
+    company_registration: "/register/company",
+    company_page: "/company",
+    profile_page: "/profile",
+    user_register: "/register/user",
+    home: "/"
+}
+
+export default url_path;
+```
+
+
+
+### Set up Routing
+
+Use the defined paths in your `<Router>` component to make routing easier to manage:
+
+```javascript
+import url_path from 'src/lib/config/pathConfigs';
+import { Router, Route } from 'some-router-library';
+
+<Router {url}>
+  <div>
+    <Route path={url_path.home}><Products /></Route>
+    <Route path={url_path.user_register}><Register /></Route>
+    <Route path={url_path.login}><Login /></Route>
+    <Route path={url_path.company_registration}><CreateCompany /></Route>
+    <Route path={url_path.company_page}><CompanyRoute /></Route>
+    <Route path={url_path.profile_page}><UserProfile /></Route>
+  </div>
+</Router>
+```
+
+
 # 
 
 # Svelte + Vite
