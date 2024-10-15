@@ -54,11 +54,11 @@ import authService from "../supabase/auth";
           src="https://storage.googleapis.com/devitary-image-host.appspot.com/15846435184459982716-LogoMakr_7POjrN.png"
           class="w-32 mx-auto"
         /> -->
-        <h1 class="w-32 mx-auto text-xl font-bold">{{conf.AppName}}</h1>
+        <h1 class="w-32 mx-auto text-xl font-bold">{conf.AppName}</h1>
       </div>
       <div class="mt-12 flex flex-col items-center">
         <h1 class="text-2xl xl:text-3xl font-extrabold">
-          Sign up for {{conf.AppName}}
+          Sign up for {conf.AppName}
         </h1>
         <div class="w-full flex-1 mt-8">
           <div class="flex flex-col items-center">
